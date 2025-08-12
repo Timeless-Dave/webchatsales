@@ -13,3 +13,5 @@ A chat application for enhancing online sales interactions.
 1. **Clone the Repository**:
 ```bash
 git clone https://github.com/WebChatSales.git
+trigger vercel redeploy at 8-12-25 7:50PM
+Trigger redeploy
