@@ -3,5 +3,5 @@ services:
 name: WebChatSales
 env: python
 buildCommand: pip install -r requirements.txt
-startCommand: python apiapp.py
+startCommand: python api/apiapp.py
 healthCheckPath: /
