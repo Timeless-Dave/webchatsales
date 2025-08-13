@@ -1,10 +1,7 @@
 services:
 - type: web
-name: web-chat-sales
+name: WebChatSales
 env: python
 buildCommand: pip install -r requirements.txt
-startCommand: python API/deploy.py
-envVars:
-- key: PORT
-fromSecret: PORT
-autoDeploy: true
+startCommand: python apiapp.py
+healthCheckPath: /
