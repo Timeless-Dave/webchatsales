@@ -332,7 +332,7 @@ export default function Home() {
         opacity: 0.7
       }}>
         <p style={{ margin: 0, fontSize: '14px' }}>
-          © 2024 WebChatSales. Powered by AI for better sales experiences.
+          © 2025 WebChatSales. Powered by AI for better sales experiences.
         </p>
       </footer>
     </main>
