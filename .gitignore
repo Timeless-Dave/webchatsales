@@ -17,6 +17,9 @@ out/
 build/
 dist/
 
+# Vercel
+.vercel
+
 # Production builds
 *.tgz
 *.tar.gz

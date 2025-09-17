@@ -1,15 +1,6 @@
 {
-"version": 2,
-"builds": [
-{
-"src": "api/deploy.py",
-"use": "@vercel/python"
-}
-],
-"routes": [
-{
-"src": "/api/(.*)",
-"dest": "/api/deploy.py"
-}
-]
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "installCommand": "npm install"
 }
