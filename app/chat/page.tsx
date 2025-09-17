@@ -67,7 +67,7 @@ What can I help you with today?` },
   return (
     <main style={{ display: "flex", flexDirection: "column", height: "100vh", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif", background: "#fafafa" }}>
       <header style={{ 
-        padding: "18px 24px", 
+        padding: "clamp(14px, 3vw, 18px) clamp(16px, 4vw, 24px)", 
         borderBottom: "1px solid #f0f0f0", 
         display: "flex", 
         alignItems: "center", 
@@ -86,7 +86,7 @@ What can I help you with today?` },
           ← Back
         </Link>
         <div style={{ flex: 1, textAlign: "center" }}>
-          <h1 style={{ margin: 0, fontSize: 16, fontWeight: "500", color: "#1a1a1a", letterSpacing: "-0.01em" }}>AI Assistant</h1>
+          <h1 style={{ margin: 0, fontSize: "clamp(14px, 3vw, 16px)", fontWeight: "500", color: "#1a1a1a", letterSpacing: "-0.01em" }}>AI Assistant</h1>
         </div>
         <div style={{ 
           width: 6, 
@@ -100,10 +100,10 @@ What can I help you with today?` },
       <div ref={listRef} style={{ 
         flex: 1, 
         overflowY: "auto", 
-        padding: "20px 24px",
+        padding: "clamp(16px, 3vw, 20px) clamp(16px, 4vw, 24px)",
         background: "#fafafa"
       }}>
-        <div style={{ maxWidth: 640, margin: "0 auto", display: "grid", gap: 16 }}>
+        <div style={{ maxWidth: "min(640px, 100%)", margin: "0 auto", display: "grid", gap: 16 }}>
           {messages.map((m) => (
             <div key={m.id} style={{
               display: "flex",
@@ -132,12 +132,12 @@ What can I help you with today?` },
               <div style={{
                 background: m.role === "user" ? "#1a1a1a" : "white",
                 color: m.role === "user" ? "white" : "#2a2a2a",
-                padding: m.role === "user" ? "10px 14px" : "14px 18px",
+                padding: m.role === "user" ? "clamp(8px, 2vw, 10px) clamp(12px, 2.5vw, 14px)" : "clamp(12px, 2.5vw, 14px) clamp(16px, 3vw, 18px)",
                 borderRadius: m.role === "user" ? "18px 18px 4px 18px" : "18px 18px 18px 4px",
                 boxShadow: m.role === "user" ? "0 1px 2px rgba(0,0,0,0.08)" : "0 1px 2px rgba(0,0,0,0.04)",
-                maxWidth: "75%",
+                maxWidth: "min(75%, 320px)",
                 lineHeight: "1.5",
-                fontSize: "14px",
+                fontSize: "clamp(13px, 2.5vw, 14px)",
                 border: m.role === "assistant" ? "1px solid #f0f0f0" : "none"
               }}>
                 {m.role === "assistant" ? (
@@ -316,28 +316,28 @@ What can I help you with today?` },
       </div>
 
       <div style={{ 
-        padding: "16px 24px", 
+        padding: "clamp(12px, 3vw, 16px) clamp(16px, 4vw, 24px)", 
         borderTop: "1px solid #f0f0f0",
         background: "white"
       }}>
         <form onSubmit={sendMessage} style={{ 
           display: "flex", 
           gap: 8, 
-          maxWidth: 640,
+          maxWidth: "min(640px, 100%)",
           margin: "0 auto",
           alignItems: "flex-end"
         }}>
           <div style={{ flex: 1, position: "relative" }}>
-            <input
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
+        <input
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
               placeholder={loading ? "AI is responding..." : "Type your message..."}
               style={{ 
                 width: "100%",
-                padding: "12px 16px", 
+                padding: "clamp(10px, 2.5vw, 12px) clamp(14px, 3vw, 16px)", 
                 border: "1px solid #e8e8e8", 
                 borderRadius: 10,
-                fontSize: "14px",
+                fontSize: "clamp(13px, 2.5vw, 14px)",
                 outline: "none",
                 transition: "all 0.2s",
                 background: "#fafafa",
@@ -345,7 +345,7 @@ What can I help you with today?` },
                 fontFamily: "inherit",
                 lineHeight: "1.4"
               }}
-              disabled={loading}
+          disabled={loading}
               onFocus={(e) => {
                 e.target.style.borderColor = "#1a1a1a";
                 e.target.style.background = "white";
@@ -362,7 +362,7 @@ What can I help you with today?` },
             type="submit" 
             disabled={loading || !input.trim()} 
             style={{ 
-              padding: "12px 14px", 
+              padding: "clamp(10px, 2.5vw, 12px) clamp(12px, 3vw, 14px)", 
               borderRadius: 10, 
               background: loading || !input.trim() ? "#f0f0f0" : "#1a1a1a", 
               color: loading || !input.trim() ? "#999" : "white",
@@ -370,11 +370,11 @@ What can I help you with today?` },
               fontWeight: "500",
               cursor: loading || !input.trim() ? "not-allowed" : "pointer",
               transition: "all 0.2s",
-              minWidth: "50px",
+              minWidth: "clamp(45px, 8vw, 50px)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: "14px"
+              fontSize: "clamp(13px, 2.5vw, 14px)"
             }}
           >
             {loading ? (
@@ -382,8 +382,8 @@ What can I help you with today?` },
             ) : (
               "→"
             )}
-          </button>
-        </form>
+        </button>
+      </form>
       </div>
 
       <style jsx global>{`
@@ -448,6 +448,62 @@ What can I help you with today?` },
         
         ::-webkit-scrollbar-thumb:hover {
           background: #a8a8a8;
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+          .markdown-content h1,
+          .markdown-content h2,
+          .markdown-content h3 {
+            font-size: 14px !important;
+            margin: 8px 0 4px 0 !important;
+          }
+          
+          .markdown-content p {
+            font-size: 13px !important;
+            margin: 0 0 8px 0 !important;
+          }
+          
+          .markdown-content ul,
+          .markdown-content ol {
+            padding-left: 16px !important;
+          }
+          
+          .markdown-content li {
+            font-size: 13px !important;
+            margin: 3px 0 !important;
+          }
+          
+          .markdown-content code {
+            font-size: 11px !important;
+            padding: 2px 4px !important;
+          }
+          
+          .markdown-content pre {
+            font-size: 11px !important;
+            padding: 8px !important;
+            margin: 6px 0 !important;
+          }
+          
+          .markdown-content table {
+            font-size: 11px !important;
+          }
+          
+          .markdown-content th,
+          .markdown-content td {
+            padding: 6px 8px !important;
+          }
+        }
+        
+        /* Touch-friendly interactions */
+        @media (hover: none) and (pointer: coarse) {
+          button:hover {
+            transform: none !important;
+          }
+          
+          input:focus {
+            transform: none !important;
+          }
         }
       `}</style>
     </main>

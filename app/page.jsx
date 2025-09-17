@@ -41,19 +41,20 @@ export default function Home() {
         flex: 1,
         display: 'flex',
         alignItems: 'center',
-        padding: '60px 40px'
+        padding: 'clamp(40px, 8vw, 60px) clamp(20px, 4vw, 40px)'
       }}>
         <div style={{
           maxWidth: '1200px',
           margin: '0 auto',
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
           gap: '60px',
-          alignItems: 'center'
+          alignItems: 'center',
+          padding: '0 20px'
         }}>
           <div>
             <h2 style={{
-              fontSize: '48px',
+              fontSize: 'clamp(32px, 5vw, 48px)',
               fontWeight: '800',
               margin: '0 0 20px 0',
               lineHeight: '1.1'
@@ -63,7 +64,7 @@ export default function Home() {
               <span style={{ color: '#fbbf24' }}>Chat Assistant</span>
             </h2>
             <p style={{
-              fontSize: '20px',
+              fontSize: 'clamp(16px, 2.5vw, 20px)',
               margin: '0 0 30px 0',
               opacity: 0.9,
               lineHeight: '1.6'
@@ -74,7 +75,8 @@ export default function Home() {
             <div style={{
               display: 'flex',
               gap: '20px',
-              marginBottom: '40px'
+              marginBottom: '40px',
+              flexWrap: 'wrap'
             }}>
               <a href="/chat" style={{
                 background: 'white',
@@ -107,7 +109,8 @@ export default function Home() {
               display: 'flex',
               gap: '30px',
               fontSize: '14px',
-              opacity: 0.8
+              opacity: 0.8,
+              flexWrap: 'wrap'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <span style={{ fontSize: '20px' }}>🤖</span>
@@ -212,7 +215,7 @@ export default function Home() {
       {/* Features Section */}
       <section id="features" style={{
         background: 'rgba(255,255,255,0.1)',
-        padding: '60px 40px',
+        padding: 'clamp(40px, 8vw, 60px) clamp(20px, 4vw, 40px)',
         backdropFilter: 'blur(10px)'
       }}>
         <div style={{
@@ -220,10 +223,10 @@ export default function Home() {
           margin: '0 auto'
         }}>
           <h3 style={{
-            fontSize: '32px',
+            fontSize: 'clamp(24px, 4vw, 32px)',
             fontWeight: '700',
             textAlign: 'center',
-            margin: '0 0 50px 0'
+            margin: '0 0 clamp(30px, 6vw, 50px) 0'
           }}>
             Why Choose WebChatSales?
           </h3>
@@ -282,7 +285,7 @@ export default function Home() {
 
       {/* CTA Section */}
       <section style={{
-        padding: '60px 40px',
+        padding: 'clamp(40px, 8vw, 60px) clamp(20px, 4vw, 40px)',
         textAlign: 'center'
       }}>
         <div style={{
@@ -290,14 +293,14 @@ export default function Home() {
           margin: '0 auto'
         }}>
           <h3 style={{
-            fontSize: '36px',
+            fontSize: 'clamp(28px, 5vw, 36px)',
             fontWeight: '700',
             margin: '0 0 20px 0'
           }}>
             Ready to Boost Your Sales?
           </h3>
           <p style={{
-            fontSize: '18px',
+            fontSize: 'clamp(16px, 2.5vw, 18px)',
             opacity: 0.9,
             margin: '0 0 30px 0',
             lineHeight: '1.6'
